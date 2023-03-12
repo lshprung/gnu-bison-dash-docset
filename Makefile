@@ -50,6 +50,7 @@ $(INFO_PLIST_FILE): src/Info.plist $(CONTENTS_DIR)
 $(INDEX_FILE): src/index.sh $(DOCUMENTS_DIR)
 	rm -f $@
 	src/index.sh $@ $(DOCUMENTS_DIR)/*.html
+	src/index.sh -i $@ $(DOCUMENTS_DIR)/Index-of-Terms.html
 
 $(ICON_FILE): src/icon.png $(DOCSET_DIR)
 	cp src/icon.png $@
