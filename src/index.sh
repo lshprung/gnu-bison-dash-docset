@@ -6,14 +6,14 @@ shift
 get_title() {
 	FILE="$1"
 
-	PATTERN="<title>.*\(automake\).*</title>"
+	PATTERN="<title>.*\(Bison.*\).*</title>"
 
 	#Find pattern in file
 	grep -Eo "$PATTERN" "$FILE" | 
 		#Remove tag
 		sed 's/<[^>]*>//g' | \
 		#Remove '(automake)'
-		sed 's/(automake)//g' | \
+		sed 's/(Bison.*)//g' | \
 		#Remove trailing space
 		sed 's/[ ]*$//g' | \
 		#Replace '&amp' with '&'
